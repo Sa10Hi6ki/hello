@@ -25,14 +25,18 @@ public class kazuate {
             } else {
                 if (guessedNumber > targetNumber) {
                     System.out.println("入力した数は設定された数より大きいです。");
+                    // 20以上差がある場合のメッセージを表示する
+                    if (Math.abs(guessedNumber - targetNumber) >= 20) {
+                        System.out.println("20以上差があります。");
+                    }
                 } else {
                     System.out.println("入力した数は設定された数より小さいです。");
+                    // 20以上差がある場合のメッセージを表示する
+                    if (Math.abs(guessedNumber - targetNumber) >= 20) {
+                        System.out.println("20以上差があります。");
+                    }
                 }
 
-                // 20以上差がある場合のメッセージを表示する
-                if (Math.abs(guessedNumber - targetNumber) >= 20) {
-                    System.out.println("20以上差があります。");
-                }
             }
         }
 
@@ -40,5 +44,9 @@ public class kazuate {
         if (attempts == 5 && guessedNumber != targetNumber) {
             System.out.println("残念！正解は " + targetNumber + " でした。");
         }
+
+        // Scannerを閉じる
+        scanner.close();
+        
     }
 }
