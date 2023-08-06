@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>みんなのつぶやき - 検索結果</title>
+</head>
+<body>
+    <h1>みんなのつぶやき - 検索結果</h1>
+    
+    <!-- 検索結果の表示 -->
+    <ul th:if="${#lists.isEmpty(tsubuyakiList)}">
+        <p>検索結果がありません</p>
+    </ul>
+    <ul th:unless="${#lists.isEmpty(tsubuyakiList)}">
+        <li th:each="t: ${tsubuyakiList}">
+            [[${t.comment}]] -- [[${t.name}]] on [[${t.createdAt}]]
+        </li>
+    </ul>
+    
+    <!-- 戻るリンク -->
+    <h2>メイン画面へ</h2>
+    <a th:href="@{/read}">戻る</a>
+</body>
+</html>
